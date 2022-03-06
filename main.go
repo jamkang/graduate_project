@@ -16,6 +16,7 @@ func main() {
 	////注入中间件
 	r.Use(sessions.Sessions("mysession", store))
 
-	user.NewRou(r)
+	//路由分组
+	user.NewUserRou(r.Group("/user"))
 	r.Run(":8010")
 }

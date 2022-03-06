@@ -6,13 +6,13 @@ import (
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"pro10/src/app/tool/Db"
+	"pro10/src/app/db/user"
 	"strconv"
 )
 
 //用户注册
 func AddAdministor(c *gin.Context) {
-	var adminstor Db.Administor
+	var adminstor user.Administor
 	if err := c.ShouldBind(&adminstor); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"err": "数据传输问题"})
 		return
@@ -34,7 +34,7 @@ func AddAdministor(c *gin.Context) {
 
 //管理员登录
 func LoginAdnimistor(c *gin.Context) {
-	var adminstor *Db.Administor = new(Db.Administor)
+	var adminstor *user.Administor = new(user.Administor)
 	if err := c.ShouldBind(&adminstor.User.UserBase); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"err": err})
 		return

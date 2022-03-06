@@ -6,13 +6,13 @@ import (
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"pro10/src/app/db/user"
 	"pro10/src/app/tool"
-	"pro10/src/app/tool/Db"
 	"strconv"
 )
 
 func AddDistributor(c *gin.Context) {
-	distributor := new(Db.Distribution)
+	distributor := new(user.Distribution)
 	if err := c.ShouldBind(&distributor); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"err:": err})
 		return
@@ -30,7 +30,7 @@ func AddDistributor(c *gin.Context) {
 }
 
 func LoginDistributor(c *gin.Context) {
-	var distributor *Db.Distribution = new(Db.Distribution)
+	var distributor *user.Distribution = new(user.Distribution)
 	if err := c.ShouldBind(&distributor.User.UserBase); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"err": err})
 		return

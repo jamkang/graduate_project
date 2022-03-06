@@ -9,9 +9,9 @@ import (
 type UserRou struct {
 }
 
-func NewRou(r *gin.Engine) {
-	r.POST("/user/registerAdmi", AddAdministor)
-	r.POST("/user/registerDis", AddDistributor)
-	r.POST("/user/loginAdmi", LoginAdnimistor)
-	r.POST("/user/loginDis", LoginDistributor)
+func NewUserRou(user *gin.RouterGroup) {
+	user.POST("registerAdmi", AddAdministor)
+	user.POST("/registerDis", AddDistributor)
+	user.POST("/loginAdmi", LoginAdnimistor)
+	user.POST("/loginDis", LoginDistributor)
 }
