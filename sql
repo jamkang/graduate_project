@@ -15,7 +15,7 @@ create
 create table goodclassify(
 id      int primary key  auto_increment,
 name    varchar(10)  UNIQUE,
-supclass int NOT NULL DEFAULT -1,
+supclass  varchar(10) NOT NULL DEFAULT "一级分类",
 classnum int NOT NULL DEFAULT 1,
 shopnum int DEFAULT 0
 )charset=utf8
